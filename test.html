@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibration Test</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    margin-top: 100px;
+}
+
+button {
+    font-size: 24px;
+    padding: 20px 40px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Vibration Test</h1>
+
+<p id="status">Checking support...</p>
+
+<button id="vibrateBtn">Tap to Vibrate</button>
+
+<script>
+// Check if vibration API exists
+const statusText = document.getElementById("status");
+
+if ("vibrate" in navigator) {
+    statusText.innerHTML = "✅ Vibration API detected";
+} else {
+    statusText.innerHTML = "❌ Vibration NOT supported on this device/browser";
+}
+
+document.getElementById("vibrateBtn").onclick = function () {
+
+    if (!("vibrate" in navigator)) {
+        alert("Vibration not supported.");
+        return;
+    }
+
+    // try different vibration patterns
+    navigator.vibrate(200);
+
+    console.log("Vibrate command sent");
+};
+</script>
+
+</body>
+</html>
