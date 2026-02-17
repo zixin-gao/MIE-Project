@@ -1,54 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vibration Test</title>
-
-<style>
-body {
-    font-family: Arial;
-    text-align: center;
-    margin-top: 100px;
-}
-
-button {
-    font-size: 24px;
-    padding: 20px 40px;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Whack the Even Numbers</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>Vibration Test</h1>
+  <h1>Whack the Even Numbers!</h1>
 
-<p id="status">Checking support...</p>
+  <div id="controls">
+    <button onclick="startGame('no feedback')">Start Control Trial</button>
+    <button onclick="startGame('sound')">Start Sound Trial</button>
+  </div>
 
-<button id="vibrateBtn">Tap to Vibrate</button>
+  <div id="gameBoard"></div>
 
-<script>
-// Check if vibration API exists
-const statusText = document.getElementById("status");
+  <div id="results"></div>
 
-if ("vibrate" in navigator) {
-    statusText.innerHTML = "✅ Vibration API detected";
-} else {
-    statusText.innerHTML = "❌ Vibration NOT supported on this device/browser";
-}
+  <!-- <button onclick="downloadData()">Download Data</button> -->
 
-document.getElementById("vibrateBtn").onclick = function () {
-
-    if (!("vibrate" in navigator)) {
-        alert("Vibration not supported.");
-        return;
-    }
-
-    // try different vibration patterns
-    navigator.vibrate(200);
-
-    console.log("Vibrate command sent");
-};
-</script>
-
+  <script src="script.js"></script>
 </body>
+
 </html>

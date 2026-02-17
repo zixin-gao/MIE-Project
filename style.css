@@ -1,0 +1,40 @@
+body {
+  font-family: Arial;
+  text-align: center;
+}
+
+#gameBoard {
+  display: grid;
+  /* 'auto' ensures the columns only take up as much space as the content */
+  grid-template-columns: repeat(5, auto);
+  /* 'gap' controls the space between the boxes */
+  gap: 100px;
+  width: fit-content;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+.number {
+  font-size: 18px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  user-select: none;
+
+  /* Remove aspect-ratio and use padding to tightly enclose the number */
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  /* This removes the "flash" on mobile devices */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* REMOVED: .number:active { background-color: #ccc; } */
+
+button {
+  font-size: 16px;
+  padding: 8px 14px;
+  margin: 8px;
+}
